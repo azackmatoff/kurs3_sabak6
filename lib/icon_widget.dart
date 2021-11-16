@@ -1,48 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kurs3_sabak6/constants.dart';
 
 class IconWidget extends StatelessWidget {
   const IconWidget({
     Key key,
     @required this.text,
     @required this.icon,
-    @required this.onTap,
-    this.bgColor,
+    this.allPaddingSize,
   }) : super(key: key);
 
   final String text;
-  final Color bgColor;
   final IconData icon;
-  final Function onTap;
+  final double allPaddingSize;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          // width: 100,
-          ///BoxDecoration bar bolso tus oshol jaktan berilet, Container den berilbeyt
-          // color: Colors.red,
-          decoration: BoxDecoration(
-            /// ?? degnedin maanisi => egerde bgColor null bolso, Color(0xff111328) ushul tustu ber
-            color: bgColor ?? Color(0xff111328),
-            borderRadius: BorderRadius.circular(12),
+    return Padding(
+      padding: EdgeInsets.all(
+          allPaddingSize ?? 28.0), // ?? egerde null bolup kalsa 28.0 ber
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FaIcon(
+            icon,
+            size: 85.0,
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FaIcon(
-                icon,
-                size: 75.0,
-              ),
-              Text(
-                text,
-                style: TextStyle(fontSize: 25.0),
-              ),
-            ],
+          Text(
+            text,
+            style: titleTextStyle,
           ),
-        ),
+        ],
       ),
     );
   }
