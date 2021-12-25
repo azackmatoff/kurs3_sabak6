@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kurs3_sabak6/circular_button.dart';
-import 'package:kurs3_sabak6/constants.dart';
-import 'package:kurs3_sabak6/enums.dart';
-import 'package:kurs3_sabak6/icon_widget.dart';
-import 'package:kurs3_sabak6/result_screen.dart';
-import 'package:kurs3_sabak6/reusable_widget.dart';
-import 'package:kurs3_sabak6/weight_heigth_widget.dart';
+import 'package:kurs3_sabak6/app_constants/app_colors.dart';
+import 'package:kurs3_sabak6/app_constants/app_text_styles.dart';
+import 'package:kurs3_sabak6/widgets/circular_button.dart';
+import 'package:kurs3_sabak6/app_enums/enums.dart';
+import 'package:kurs3_sabak6/widgets/icon_widget.dart';
+import 'package:kurs3_sabak6/widgets/reusable_widget.dart';
+import 'package:kurs3_sabak6/screens/result_screen.dart';
+import 'package:kurs3_sabak6/widgets/weight_heigth_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -73,8 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ReUsableWidget(
                               onTap: () => chooseGender(Gender.MALE),
                               bgColor: gender == Gender.MALE
-                                  ? activeIconColor
-                                  : inActiveIconColor,
+                                  ? AppColors.activeIconColor
+                                  : AppColors.inActiveIconColor,
                               child: IconWidget(
                                 icon: FontAwesomeIcons.mars,
                                 text: 'MALE',
@@ -85,8 +86,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ReUsableWidget(
                               onTap: () => chooseGender(Gender.FEMALE),
                               bgColor: gender == Gender.FEMALE
-                                  ? activeIconColor
-                                  : inActiveIconColor,
+                                  ? AppColors.activeIconColor
+                                  : AppColors.inActiveIconColor,
                               child: IconWidget(
                                 icon: FontAwesomeIcons.venus,
                                 text: 'FEMALE',
@@ -99,13 +100,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(height: 25.0),
                       ReUsableWidget(
                         onTap: null,
-                        bgColor: activeIconColor,
+                        bgColor: AppColors.activeIconColor,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               'HEIGHT',
-                              style: titleTextStyle,
+                              style: AppTextStyles.titleTextStyle,
                             ),
                             const SizedBox(height: 8.0),
                             Row(
@@ -115,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 Text(
                                   _height.round().toString(),
-                                  style: numberTextStyle,
+                                  style: AppTextStyles.numberTextStyle,
                                 ),
                                 const SizedBox(width: 5.0),
                                 Text(
@@ -157,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             ReUsableWidget(
                               onTap: null,
-                              bgColor: activeIconColor,
+                              bgColor: AppColors.activeIconColor,
                               child: WeightHeightWidget(
                                 title: 'WEIGHT',
                                 weight: _weigth.toString(),
@@ -168,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(width: 25.0),
                             ReUsableWidget(
                               onTap: null,
-                              bgColor: activeIconColor,
+                              bgColor: AppColors.activeIconColor,
                               child: WeightHeightWidget(
                                 title: 'AGE',
                                 age: _age.toString(),
@@ -187,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomButton(
                 child: Text(
                   'CALCULATE',
-                  style: buttonTextStyle,
+                  style: AppTextStyles.buttonTextStyle,
                 ),
                 onTap: () {
                   Navigator.push(
@@ -198,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 weight: _weigth.toDouble(),
                               )));
                 },
-                buttonColor: buttonColor,
+                buttonColor: AppColors.buttonColor,
                 constraints: BoxConstraints(
                   minHeight: 92,
                   minWidth: MediaQuery.of(context).size.width,

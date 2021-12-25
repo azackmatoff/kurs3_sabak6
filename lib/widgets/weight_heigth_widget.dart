@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kurs3_sabak6/circular_button.dart';
-import 'package:kurs3_sabak6/constants.dart';
+import 'package:kurs3_sabak6/app_constants/app_text_styles.dart';
+import 'package:kurs3_sabak6/widgets/circular_button.dart';
 
 class WeightHeightWidget extends StatelessWidget {
   const WeightHeightWidget({
@@ -28,7 +28,7 @@ class WeightHeightWidget extends StatelessWidget {
         children: [
           Text(
             title,
-            style: titleTextStyle,
+            style: AppTextStyles.titleTextStyle,
           ),
           weight != null
               ? Row(
@@ -38,14 +38,14 @@ class WeightHeightWidget extends StatelessWidget {
                   children: [
                     Text(
                       weight,
-                      style: numberTextStyle,
+                      style: AppTextStyles.numberTextStyle,
                     ),
                     Text(' kg'),
                   ],
                 )
               : Text(
                   age,
-                  style: numberTextStyle,
+                  style: AppTextStyles.numberTextStyle,
                 ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

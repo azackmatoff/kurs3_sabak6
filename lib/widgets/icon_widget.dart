@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kurs3_sabak6/constants.dart';
+import 'package:kurs3_sabak6/app_constants/app_text_styles.dart';
 
 class IconWidget extends StatelessWidget {
   const IconWidget({
@@ -28,7 +28,7 @@ class IconWidget extends StatelessWidget {
           ),
           Text(
             text,
-            style: titleTextStyle,
+            style: AppTextStyles.titleTextStyle,
           ),
         ],
       ),

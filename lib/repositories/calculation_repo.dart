@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-class CalculationBrain {
-  CalculationBrain({this.height, this.weight});
+class CalculationRepo {
+  CalculationRepo({this.height, this.weight});
 
   final double height;
   final double weight;
@@ -37,4 +37,4 @@ class CalculationBrain {
   }
 }
 
-final CalculationBrain calculationBrain = CalculationBrain();
+final CalculationRepo calculationRepo = CalculationRepo();

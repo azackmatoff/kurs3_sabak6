@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:kurs3_sabak6/circular_button.dart';
-import 'package:kurs3_sabak6/constants.dart';
-import 'package:kurs3_sabak6/home_screen.dart';
-import 'package:kurs3_sabak6/logic/calculation_brain.dart';
-import 'package:kurs3_sabak6/reusable_widget.dart';
+import 'package:kurs3_sabak6/app_constants/app_colors.dart';
+import 'package:kurs3_sabak6/app_constants/app_text_styles.dart';
+import 'package:kurs3_sabak6/repositories/calculation_repo.dart';
+import 'package:kurs3_sabak6/widgets/circular_button.dart';
+
+import 'package:kurs3_sabak6/widgets/reusable_widget.dart';
+import 'package:kurs3_sabak6/screens/home_screen.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({Key key, this.height, this.weight}) : super(key: key);
@@ -20,17 +22,17 @@ class _ResultScreenState extends State<ResultScreen> {
   void initState() {
     super.initState();
 
-    calculationBrain.calculateBMI(widget.height, widget.weight);
+    calculationRepo.calculateBMI(widget.height, widget.weight);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: bgcolor,
+        backgroundColor: AppColors.bgColor,
         title: Text(
           'BMI CALCULATOR',
-          style: titleTextStyle,
+          style: AppTextStyles.titleTextStyle,
         ),
         centerTitle: true,
       ),
@@ -46,30 +48,30 @@ class _ResultScreenState extends State<ResultScreen> {
                   children: [
                     Text(
                       'Your Result',
-                      style: resultTitle,
+                      style: AppTextStyles.resultTitle,
                     ),
                     const SizedBox(height: 35.0),
                     ReUsableWidget(
-                      bgColor: activeIconColor,
+                      bgColor: AppColors.activeIconColor,
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Text(
-                              calculationBrain.getResult(),
-                              style: resultSubTitle,
+                              calculationRepo.getResult(),
+                              style: AppTextStyles.resultSubTitle,
                             ),
                             Text(
-                              calculationBrain.getResultNumber(),
-                              style: resultNumber,
+                              calculationRepo.getResultNumber(),
+                              style: AppTextStyles.resultNumber,
                             ),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 5.0),
                               child: Text(
-                                calculationBrain.getInterpretation(),
-                                style: titleTextStyle,
+                                calculationRepo.getInterpretation(),
+                                style: AppTextStyles.titleTextStyle,
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -85,14 +87,14 @@ class _ResultScreenState extends State<ResultScreen> {
             CustomButton(
               child: Text(
                 'RE-CALCULATE',
-                style: buttonTextStyle,
+                style: AppTextStyles.buttonTextStyle,
               ),
               onTap: () {
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (context) => HomeScreen()),
                     (Route<dynamic> route) => false);
               },
-              buttonColor: buttonColor,
+              buttonColor: AppColors.buttonColor,
               constraints: BoxConstraints(
                 minHeight: 92,
                 minWidth: MediaQuery.of(context).size.width,

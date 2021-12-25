@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kurs3_sabak6/constants.dart';
+import 'package:kurs3_sabak6/app_constants/app_colors.dart';
 
-import 'package:kurs3_sabak6/home_screen.dart';
-import 'package:kurs3_sabak6/result_screen.dart';
+import 'package:kurs3_sabak6/screens/home_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,10 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kurs3 Sabak6',
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgcolor,
+        scaffoldBackgroundColor: AppColors.bgColor,
       ),
       home: HomeScreen(),
-      // home: ResultScreen(),
     );
   }
 }

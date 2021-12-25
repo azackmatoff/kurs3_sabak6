@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kurs3_sabak6/constants.dart';
+import 'package:kurs3_sabak6/app_constants/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
             minHeight: 62.0,
             minWidth: 62.0,
           ),
-      fillColor: buttonColor ?? circleButtonColor,
+      fillColor: buttonColor ?? AppColors.circleButtonColor,
       shape: shape ?? CircleBorder(),
       child: child,
     );

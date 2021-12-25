@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kurs3_sabak6/constants.dart';
+import 'package:kurs3_sabak6/app_constants/app_colors.dart';
 
 // typedef JynysTandoo = void Function(Gender); // funksiya jasoo
 
@@ -25,7 +25,7 @@ class ReUsableWidget extends StatelessWidget {
         onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            color: bgColor ?? activeIconColor,
+            color: bgColor ?? AppColors.activeIconColor,
             borderRadius: BorderRadius.circular(12),
           ),
           child: child,
