@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kurs3_sabak6/app_constants/app_colors.dart';
@@ -23,6 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int _weigth;
   int _age;
 
+  int _count = 1;
+
   @override
   void initState() {
     super.initState();
@@ -39,7 +43,9 @@ class _HomeScreenState extends State<HomeScreen> {
       _age--;
     }
 
-    setState(() {});
+    setState(() {
+      _count++;
+    });
   }
 
   void _increment(WeightOrAge chosenType) {
@@ -49,11 +55,15 @@ class _HomeScreenState extends State<HomeScreen> {
       _age++;
     }
 
-    setState(() {});
+    setState(() {
+      _count++;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    log('build  _count ===> $_count');
+
     return Scaffold(
       // backgroundColor: Colors.amber,
       body: SafeArea(
@@ -145,6 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onChanged: (double ozgorgonSan) {
                                   setState(() {
                                     _height = ozgorgonSan;
+                                    _count++;
                                   });
                                 },
                               ),
@@ -218,6 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
   chooseGender(Gender chosenGender) {
     setState(() {
       gender = chosenGender;
+      _count++;
     });
   }
 }
